@@ -25,6 +25,9 @@ namespace Espera.View.ViewModels
 
             this.viewSettings = viewSettings;
 
+            this.ratingOrder = SortOrder.Descending;
+            this.ApplyOrder(SortHelpers.GetOrderByRating, ref this.ratingOrder);
+
             this.OrderByRatingCommand = ReactiveCommand.Create();
             this.OrderByRatingCommand.Subscribe(_ => this.ApplyOrder(SortHelpers.GetOrderByRating, ref this.ratingOrder));
 
